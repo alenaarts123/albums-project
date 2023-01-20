@@ -1,0 +1,15 @@
+<mat-dialog-content [formGroup]="editAlbumForm">
+  <h1 mat-dialog-title>Edit album</h1>
+  <div mat-dialog-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Album title</mat-label>
+      <input matInput formControlName="albumTitle" name="albumTitle">
+      <mat-error *ngIf="isAlbumTitleInvalid">Enter Album title</mat-error>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="closeDialog()">Cancel</button>
+    <button mat-button mat-dialog-close cdkFocusInitial (click)="updateAlbum()" [disabled]="isSaveButtonDisabled">Save
+    </button>
+  </div>
+</mat-dialog-content>

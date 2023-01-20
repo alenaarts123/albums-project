@@ -1,0 +1,21 @@
+<div class="albums-dashboard">
+  <mat-toolbar>
+    <span>Albums dashboard</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-button (click)="openAlbumCreateDialog()">Add album</button>
+  </mat-toolbar>
+  <div class="albums-dashboard-container">
+    <div *ngFor="let album of albums">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title (click)="goToAlbum(album.id)">Album</mat-card-title>
+          <mat-card-subtitle><a>{{album.title}}</a></mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-actions>
+          <button mat-button (click)="openAlbumDeleteDialog(album.id)">DELETE</button>
+          <button mat-button (click)="openEditAlbumDialog(album)">EDIT</button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

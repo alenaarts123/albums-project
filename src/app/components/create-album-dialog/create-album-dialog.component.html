@@ -1,0 +1,25 @@
+<mat-dialog-content [formGroup]="createAlbumForm">
+  <h1 mat-dialog-title>Create album</h1>
+  <div mat-dialog-content class="create-album-dialog">
+    <mat-form-field appearance="fill">
+      <mat-label>User</mat-label>
+      <mat-select formControlName="selectedUser" name="userId">
+        <mat-option *ngFor="let user of users" [value]="user.id">
+          {{user.name}}
+        </mat-option>
+      </mat-select>
+       <mat-error *ngIf="isSelectedUserInvalid">Please choose User</mat-error>
+   </mat-form-field>
+
+   <mat-form-field appearance="fill">
+     <mat-label>Album title</mat-label>
+     <input matInput formControlName="albumTitle" name="albumTitle">
+     <mat-error *ngIf="isAlbumTitleInvalid">Please, enter album title</mat-error>
+   </mat-form-field>
+
+ </div>
+ <div mat-dialog-actions>
+   <button mat-button mat-dialog-close (click)="closeDialog()">Cancel</button>
+   <button mat-button mat-dialog-close cdkFocusInitial (click)="createAlbum()" [disabled]="isSaveButtonDisabled">Save</button>
+ </div>
+</mat-dialog-content>

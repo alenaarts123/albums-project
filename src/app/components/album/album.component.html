@@ -1,0 +1,21 @@
+<div class="album-content">
+  <mat-toolbar>
+    <span>Album photos</span>
+    <span class="toolbar-spacer"></span>
+    <button mat-button (click)="goToHomePage()">Home</button>
+  </mat-toolbar>
+  <div class="album-photos-container">
+    <div *ngFor="let photo of photos">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>Photo</mat-card-title>
+          <mat-card-subtitle>{{photo.title}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="photo.thumbnailUrl">
+        <mat-card-actions>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>
+
